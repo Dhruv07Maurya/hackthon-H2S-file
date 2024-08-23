@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <link rel="stylesheet" href="DashCss.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <title>PayApp</title>
+  <!-- <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      header {
+        background: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+      .menu {
+        display: flex;
+        justify-content: center;
+        background: #f4f4f4;
+        padding: 10px;
+      }
+      .menu a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+      }
+      .menu a.active {
+        font-weight: bold;
+        color: #007bff;
+      }
+      .content {
+        text-align: center;
+        margin-top: 20px;
+      }
+      .hidden {
+        display: none;
+      }
+      #qr-scanner {
+        margin-top: 20px;
+      }
+      #qr-reader {
+        width: 100%;
+        max-width: 300px;
+        height: 300px;
+        margin: 0 auto;
+      }
+      .product-table {
+        margin-top: 20px;
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .product-table th,
+      .product-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      .product-table th {
+        background-color: #f4f4f4;
+      }
+      .button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .button:hover {
+        background-color: #0056b3;
+      }
+      #balance {
+        float: right;
+        margin: 10px;
+        font-size: 16px;
+      }
+    </style> -->
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Snap It</h1>
+      <div id="balance"><i class="fas fa-wallet"></i>₹ 0.00</div>
+    </div>
+  </header>
+  <div class="menu">
+    <a href="#" id="home-link" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="#" id="purchases-link">Purchases</a>
+    <a href="#" id="load-balance-link">Load Balance</a>
+  </div>
+  <div class="container content">
+    <div id="home" class="content-page">
+      <button id="scan-btn" class="button">Scan QR</button>
+      <div id="qr-scanner" class="hidden">
+        <div id="qr-reader"></div>
+      </div>
+    </div>
+    <div id="product-page" class="content-page hidden">
+      <table class="product-table">
+        <tr>
+          <th>Product Name</th>
+          <th>Product Owner</th>
+          <th>Product Price</th>
+          <th>Image</th>
+        </tr>
+        <tr>
+          <td id="product-name">---</td>
+          <td id="product-owner">---</td>
+          <td id="product-price">---</td>
+          <td><img id="product-image" src="" alt="Product Image" width="100" /></td>
+        </tr>
+      </table>
+      <button id="purchase-btn" class="button">Purchase Product</button>
+      <!-- remove -->
+
+      <button id="return-btn" class="button hidden">Return Product</button> 
+    </div>
+    <div id="purchases" class="content-page hidden">
+      <h2>Purchases</h2>
+      <div id="purchases-list"></div>
+    </div>
+    <div id="load-balance" class="content-page hidden">
+      <h2>Load Balance</h2>
+      <input type="number" id="amount" placeholder="Enter amount" />
+      <button id="add-balance-btn" class="button">Add Balance</button>
+    </div>
+  </div>
+
+  <script src="./qrcode.min.js"></script>
+  <script src="scriptPAY.js"></script>
+</body>
+
+</html>
